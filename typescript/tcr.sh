@@ -42,7 +42,7 @@ do
 
   TEST_OUTPUT=$(yarn run test 2>&1)
 
-  echo "$TEST_OUTPUT"
+#  echo "$TEST_OUTPUT"
 
   if [[ $TEST_OUTPUT == *"FAIL"* ||  $TEST_OUTPUT == *"fail"* ]]; then
     echo ""
@@ -51,9 +51,11 @@ do
     git reset --hard > /dev/null
 
     REVERTS=$((REVERTS + 1))
-    SUCCESSFUL_LOOPS=0
 
+    echo ""
     echo "you managed $SUCCESSFUL_LOOPS successful iterations"
+
+    SUCCESSFUL_LOOPS=0
   else
     echo ""
     echo "tests are green; committing!"
