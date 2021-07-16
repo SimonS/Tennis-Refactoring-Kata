@@ -49,9 +49,13 @@ export class TennisGame1 implements TennisGame {
       return `${result.resultType} ${result.leader.name}`;
     }
 
+    if (minusResult === -1) {
+      result = { resultType: 'Advantage', leader: Player2 };
+      return `${result.resultType} ${result.leader.name}`;
+    }
 
 
-    if (minusResult === -1) return `Advantage ${Player2.name}`;
+
     if (minusResult >= 2) return `Win for ${Player1.name}`;
     return `Win for ${Player2.name}`;
   }
