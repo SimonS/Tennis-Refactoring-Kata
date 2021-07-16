@@ -32,6 +32,15 @@ export class TennisGame1 implements TennisGame {
     }
   }
 
+  showPotentialEndGameScore(m_score1: number, m_score2: number): string {
+    const minusResult: number = m_score1 - m_score2;
+
+    if (minusResult === 1) return 'Advantage player1';
+    else if (minusResult === -1) return 'Advantage player2';
+    else if (minusResult >= 2) return 'Win for player1';
+    return 'Win for player2';
+  }
+
   getScore(): string {
     let score: string = '';
     let tempScore: number = 0;
@@ -44,13 +53,7 @@ export class TennisGame1 implements TennisGame {
     }
 
     if (potentialEndGame) {
-      const minusResult: number = this.m_score1 - this.m_score2;
-      if (minusResult === 1) score = 'Advantage player1';
-      else if (minusResult === -1) score = 'Advantage player2';
-      else if (minusResult >= 2) score = 'Win for player1';
-      else score = 'Win for player2';
-
-      return score;
+      return this.showPotentialEndGameScore(this.m_score1, this.m_score2)
     }
 
     for (let i = 1; i < 3; i++) {
