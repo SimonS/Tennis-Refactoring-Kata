@@ -20,7 +20,7 @@ export class TennisGame1 implements TennisGame {
   }
 
   showTieScore(m_score: number): string {
-    var score: string;
+    let score: string;
     switch (m_score) {
       case 0:
         score = 'Love-All';
