@@ -1,6 +1,16 @@
 import { TennisGame } from './TennisGame';
 
 
+
+class Player {
+  name: string
+  score: number
+
+  constructor(name: string, score: number) {
+    this.name = name;
+    this.score = score;
+  }
+}
 export class TennisGame1 implements TennisGame {
   private m_score1: number = 0;
   private m_score2: number = 0;
@@ -8,8 +18,8 @@ export class TennisGame1 implements TennisGame {
   private player2Name: string;
 
   constructor(player1Name: string, player2Name: string) {
-    this.player1Name = player1Name;
-    this.player2Name = player2Name;
+    this.player1Name = new Player(player1Name, 0).name;
+    this.player2Name = new Player(player2Name, 0).name;
   }
 
   wonPoint(playerName: string): void {
