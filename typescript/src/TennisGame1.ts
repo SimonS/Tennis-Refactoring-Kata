@@ -45,8 +45,8 @@ export class TennisGame1 implements TennisGame {
 
     if (minusResult === 1) return `Advantage ${Player1.name}`;
     if (minusResult === -1) return `Advantage ${Player2.name}`;
-    if (minusResult >= 2) return 'Win for player1';
-    return 'Win for player2';
+    if (minusResult >= 2) return `Win for ${Player1.name}`;
+    return `Win for ${Player2.name}`;
   }
 
   getTennisWord(score: number): string {
