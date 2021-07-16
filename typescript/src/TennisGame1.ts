@@ -42,6 +42,14 @@ export class TennisGame1 implements TennisGame {
 
   showPotentialEndGameScore(Player1: Player, Player2: Player): string {
     const minusResult: number = Player1.score - Player2.score;
+    let result: { resultType: 'Advantage' | 'Win', leader: Player };
+
+    if (minusResult === 1) {
+      result = { resultType: 'Advantage', leader: Player1 };
+      return `${result.resultType} ${result.leader.name}`;
+    }
+
+
 
     if (minusResult === 1) return `Advantage ${Player1.name}`;
     if (minusResult === -1) return `Advantage ${Player2.name}`;
