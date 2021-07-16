@@ -12,20 +12,10 @@ class Player {
   }
 }
 export class TennisGame1 implements TennisGame {
-  private m_score1: number;
-  private m_score2: number;
-  private player1Name: string;
-  private player2Name: string;
   private player1: Player;
   private player2: Player;
 
   constructor(player1Name: string, player2Name: string) {
-    this.player1Name = new Player(player1Name).name;
-    this.player2Name = new Player(player2Name).name;
-
-    this.m_score1 = new Player(player1Name).score;
-    this.m_score2 = new Player(player2Name).score;
-
     this.player1 = new Player(player1Name);
     this.player2 = new Player(player2Name);
   }
