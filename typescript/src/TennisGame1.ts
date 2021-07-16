@@ -32,9 +32,9 @@ export class TennisGame1 implements TennisGame {
 
   wonPoint(playerName: string): void {
     if (playerName === this.player1.name)
-      this.m_score1 += 1;
+      this.player1.score += 1;
     else
-      this.m_score2 += 1;
+      this.player2.score += 1;
   }
 
   showTieScore(m_score: number): string {
@@ -73,17 +73,17 @@ export class TennisGame1 implements TennisGame {
   }
 
   getScore(): string {
-    const isScoreTied = this.m_score1 === this.m_score2
-    const potentialEndGame = this.m_score1 >= 4 || this.m_score2 >= 4
+    const isScoreTied = this.player1.score === this.player2.score
+    const potentialEndGame = this.player1.score >= 4 || this.player2.score >= 4
 
     if (isScoreTied) {
-      return this.showTieScore(this.m_score1)
+      return this.showTieScore(this.player1.score)
     }
 
     if (potentialEndGame) {
-      return this.showPotentialEndGameScore(this.m_score1, this.m_score2)
+      return this.showPotentialEndGameScore(this.player1.score, this.player2.score)
     }
 
-    return `${this.getTennisWord(this.m_score1)}-${this.getTennisWord(this.m_score2)}`
+    return `${this.getTennisWord(this.player1.score)}-${this.getTennisWord(this.player2.score)}`
   }
 }
