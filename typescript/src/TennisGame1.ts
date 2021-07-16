@@ -44,8 +44,8 @@ export class TennisGame1 implements TennisGame {
     const minusResult: number = m_score1 - m_score2;
 
     if (minusResult === 1) return 'Advantage player1';
-    else if (minusResult === -1) return 'Advantage player2';
-    else if (minusResult >= 2) return 'Win for player1';
+    if (minusResult === -1) return 'Advantage player2';
+    if (minusResult >= 2) return 'Win for player1';
     return 'Win for player2';
   }
 
