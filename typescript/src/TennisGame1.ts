@@ -41,6 +41,19 @@ export class TennisGame1 implements TennisGame {
     return 'Win for player2';
   }
 
+  getTennisWord(score: number): string {
+    switch (score) {
+      case 0:
+        return 'Love';
+      case 1:
+        return 'Fifteen';
+      case 2:
+        return 'Thirty';
+      case 3:
+        return 'Forty';
+    }
+  }
+
   getScore(): string {
     let score: string = '';
     let tempScore: number = 0;
