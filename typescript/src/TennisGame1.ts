@@ -3,23 +3,26 @@ import { TennisGame } from './TennisGame';
 
 
 class Player {
-  name: string
-  score: number
+  name: string = ''
+  score: number = 0
 
-  constructor(name: string, score: number) {
+  constructor(name: string) {
     this.name = name;
-    this.score = score;
+    this.score = 0;
   }
 }
 export class TennisGame1 implements TennisGame {
-  private m_score1: number = 0;
-  private m_score2: number = 0;
+  private m_score1: number;
+  private m_score2: number;
   private player1Name: string;
   private player2Name: string;
 
   constructor(player1Name: string, player2Name: string) {
-    this.player1Name = new Player(player1Name, 0).name;
-    this.player2Name = new Player(player2Name, 0).name;
+    this.player1Name = new Player(player1Name).name;
+    this.player2Name = new Player(player2Name).name;
+
+    this.m_score1 = new Player(player1Name).score;
+    this.m_score2 = new Player(player2Name).score;
   }
 
   wonPoint(playerName: string): void {
