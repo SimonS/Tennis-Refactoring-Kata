@@ -55,9 +55,6 @@ export class TennisGame1 implements TennisGame {
   }
 
   getScore(): string {
-    let score: string = '';
-    let tempScore: number = 0;
-
     const isScoreTied = this.m_score1 === this.m_score2
     const potentialEndGame = this.m_score1 >= 4 || this.m_score2 >= 4
 
@@ -69,13 +66,6 @@ export class TennisGame1 implements TennisGame {
       return this.showPotentialEndGameScore(this.m_score1, this.m_score2)
     }
 
-    for (let i = 1; i < 3; i++) {
-      if (i === 1) tempScore = this.m_score1;
-      else { score += '-'; tempScore = this.m_score2; }
-
-      score += this.getTennisWord(tempScore);
-    }
-
-    return score;
+    return `${this.getTennisWord(this.m_score1)}-${this.getTennisWord(this.m_score2)}`
   }
 }
