@@ -20,22 +20,16 @@ export class TennisGame1 implements TennisGame {
   }
 
   showTieScore(m_score: number): string {
-    let score: string;
     switch (m_score) {
       case 0:
-        score = 'Love-All';
-        break;
+        return 'Love-All';
       case 1:
-        score = 'Fifteen-All';
-        break;
+        return 'Fifteen-All';
       case 2:
-        score = 'Thirty-All';
-        break;
+        return 'Thirty-All';
       default:
-        score = 'Deuce';
-        break;
+        return 'Deuce';
     }
-    return score;
   }
 
   getScore(): string {
