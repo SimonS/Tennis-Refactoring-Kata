@@ -35,11 +35,15 @@ export class TennisGame1 implements TennisGame {
   getScore(): string {
     let score: string = '';
     let tempScore: number = 0;
-    if (this.m_score1 === this.m_score2) {
+
+    const isScoreTied = this.m_score1 === this.m_score2
+    const potentialEndGame = this.m_score1 >= 4 || this.m_score2 >= 4
+
+    if (isScoreTied) {
       return this.showTieScore(this.m_score1)
     }
 
-    if (this.m_score1 >= 4 || this.m_score2 >= 4) {
+    if (potentialEndGame) {
       const minusResult: number = this.m_score1 - this.m_score2;
       if (minusResult === 1) score = 'Advantage player1';
       else if (minusResult === -1) score = 'Advantage player2';
