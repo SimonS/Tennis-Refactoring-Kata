@@ -19,8 +19,9 @@ export class TennisGame1 implements TennisGame {
       this.m_score2 += 1;
   }
 
-  showTieScore(score: string): string {
-    switch (this.m_score1) {
+  showTieScore(m_score: number): string {
+    var score: string;
+    switch (m_score) {
       case 0:
         score = 'Love-All';
         break;
@@ -41,7 +42,7 @@ export class TennisGame1 implements TennisGame {
     let score: string = '';
     let tempScore: number = 0;
     if (this.m_score1 === this.m_score2) {
-      return this.showTieScore(score)
+      return this.showTieScore(this.m_score1)
     }
 
     if (this.m_score1 >= 4 || this.m_score2 >= 4) {
